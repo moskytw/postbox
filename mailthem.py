@@ -4,7 +4,8 @@
 from getpass import getpass
 from smtplib import SMTP
 
-def connect(host=None, port=None, user=None, password=None, tls=True, prompt_user=None, prompt_password='password? '):
+def connect(host=None, port=None, user=None, password=None, tls=True,
+            prompt_user=None, prompt_password='password? '):
 
     server = SMTP(host, port)
 
@@ -22,23 +23,28 @@ def connect(host=None, port=None, user=None, password=None, tls=True, prompt_use
 
     return server
 
-def send(server, body, **headers_dict):
+def send(body, **kargs):
 
-    connected_by_me = False
-
-    if isinstance(server, basestring):
-        server = connect(server)
+    if '_server' in kargs:
+        server = kargs['_server']
+        connected_by_me = False
+    else:
+        server = connect(
+            **dict((k[1:], v) for k, v in kargs.items() if k.startswith('_'))
+        )
         connected_by_me = True
 
-    primary_kargs = {'from': None, 'to': None}
+    sendmail_kargs = {'from': '', 'to': ''}
 
     headers = []
 
-    for key, value in headers_dict.items():
+    for key, value in kargs.items():
+
+        if key.startswith('_'): continue
 
         key = key.rstrip('_').lower().replace('_', '-')
-        if key in primary_kargs:
-            primary_kargs[key] = value
+        if key in sendmail_kargs:
+            sendmail_kargs[key] = value
 
         if hasattr(value, '__iter__') and not isinstance(value, str):
             value = ', '.join(value)
@@ -47,24 +53,22 @@ def send(server, body, **headers_dict):
 
     headers = '\r\n'.join(headers)
 
-    server.sendmail(primary_kargs['from'], primary_kargs['to'], '%s\r\n\r\n%s' % (headers, body))
+    server.sendmail(sendmail_kargs['from'], sendmail_kargs['to'], '%s\r\n\r\n%s' % (headers, body))
 
     if connected_by_me:
         server.quit()
 
+def gsend(body, **kargs):
+    kargs['_host'] = 'smtp.gmail.com:587'
+    return send(body, **kargs)
 
 if __name__ == '__main__':
 
-    server = connect('smtp.gmail.com:587', user='mosky.bot@gmail.com')
-    server.set_debuglevel(2)
-
-    send(
-        server,
+    gsend(
+        _user   = 'mosky.bot@gmail.com',
         from_   = '"Mosky Bot" <mosky.bot@gmail.com>',
-        to      = '"Mosky Liu" <mosky.tw@gmail.com>',
-        cc      = '"Mosky Liu" <mosky.liu@pinkoi.com>',
-        subject = 'Hello :) cc pinkoi',
+        to      = ['"Mosky Liu" <mosky.tw@gmail.com>', '"Mosky Liu" <mosky.liu@pinkoi.com>'],
+        cc      = '"Mosky Bot" <mosky.bot@gmail.com>',
+        subject = 'Hello :) cc pinkoi v4',
         body    = ':D'
     )
-
-    server.quit()
