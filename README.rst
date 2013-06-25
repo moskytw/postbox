@@ -25,9 +25,9 @@ It is an example which sends a mail from Python Shell.
 
 ::
 
-    >>> from postbox import Gmail
+    >>> from postbox import Postbox, Gmail
 
-    >>> gmail = Gmail()
+    >>> gmail = Postbox(host='smtp.google.com:587') # or gmail = Gmail()
     username? mosky.bot@gmail.com
     password? 
 
