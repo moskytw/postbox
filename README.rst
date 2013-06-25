@@ -35,7 +35,7 @@ It is an example which sends a mail from Python shell.
     ...     to = ['mosky.tw@gmail.com', 'mosky.liu@pinkoi.com'],
     ...     bcc = 'mosky@ubuntu-tw.org',
     ...     subject = 'Test from Python Shell',
-    ...     body = 'It used postbox to send. :)'
+    ...     body = 'It is sent by postbox. :)'
     ... )
     ... 
 
