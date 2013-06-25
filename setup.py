@@ -10,6 +10,7 @@ setup(
     author  = 'Mosky',
     author_email = 'mosky.tw@gmail.com',
     #url = 'http://postbox.mosky.tw/',
+    url = 'https://github.com/moskytw/postbox',
     py_modules = ['postbox'],
     license = 'MIT',
     classifiers = [
