@@ -51,7 +51,7 @@ Documentation
 The ``Postbox`` or ``Gmail`` accepts the following keyword arguments:
 
 1. ``host``: the hostname of your SMTP server. ex. 'smtp.google.com' or
-   'smtp.google.com:578'
+   'smtp.google.com:587'
 2. ``port``: the port number of your SMTP server.
 3. ``user``: the username.
 4. ``password``: the password.
@@ -61,7 +61,7 @@ The ``Postbox`` or ``Gmail`` accepts the following keyword arguments:
 8. ``debuglevel``: the debuglevel.
 9. ``dry_run``: don't send the mail out.
 
-The all keyword arguments to ``send`` will be translated into SMTP headerVs,
+The all keyword arguments to ``send`` will be translated into SMTP headers,
 except the ``body`` is the body of this mail. If you don't specify ``from_``, it
 takes the username as default. The iterable but not string will be joined to a
 string by comma.
