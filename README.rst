@@ -45,8 +45,8 @@ It is an example which sends a mail from Python shell.
 You can find more examples `here
 <https://github.com/moskytw/postbox/tree/master/examples>`_.
 
-Documentation
--------------
+Usage
+-----
 
 The ``Postbox`` or ``Gmail`` accepts the following keyword arguments:
 
