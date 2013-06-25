@@ -11,7 +11,7 @@ class Postbox(object):
     user = None
     password = None
     tls = True
-    prompt_user = None
+    prompt_user = 'username? '
     prompt_password = 'password? '
     debuglevel = None
     dry_run = False
