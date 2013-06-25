@@ -31,12 +31,12 @@ It is an example which sends a mail from Python shell.
     username? mosky.bot@gmail.com
     password? 
 
-    >>>     gmail.send(
-    ...             to = ['mosky.tw@gmail.com', 'mosky.liu@pinkoi.com'],
-    ...             bcc = 'mosky@ubuntu-tw.org',
-    ...             subject = 'Test from Python Shell',
-    ...             body = 'It used postbox to send. :)'
-    ...     )
+    >>> gmail.send(
+    ...         to = ['mosky.tw@gmail.com', 'mosky.liu@pinkoi.com'],
+    ...         bcc = 'mosky@ubuntu-tw.org',
+    ...         subject = 'Test from Python Shell',
+    ...         body = 'It used postbox to send. :)'
+    ... )
     ... 
 
     >>> gmail.close()
