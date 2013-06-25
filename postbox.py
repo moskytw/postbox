@@ -48,7 +48,7 @@ class Postbox(object):
 
     def send(self, body, **headers_dict):
 
-        sendmail_args = {'from': '', 'to': ''}
+        sendmail_args = {'from': self.user, 'to': ''}
         headers = []
 
         for key, value in headers_dict.items():
