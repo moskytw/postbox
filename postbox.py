@@ -14,8 +14,9 @@ class Postbox(object):
     prompt_user = None
     prompt_password = 'password? '
     debuglevel = None
+    dry_run = False
 
-    def _update(self, attr):
+    def _update(self, attrs):
         for key, value in attrs.items():
             setattr(self, key, value)
 
@@ -63,11 +64,12 @@ class Postbox(object):
 
         headers = '\r\n'.join(headers)
 
-        self.server.sendmail(
-            sendmail_args['from'],
-            sendmail_args['to'],
-            '%s\r\n\r\n%s' % (headers, body)
-        )
+        if not self.dry_run:
+            self.server.sendmail(
+                sendmail_args['from'],
+                sendmail_args['to'],
+                '%s\r\n\r\n%s' % (headers, body)
+            )
 
     def close(self):
         self.server.quit()
