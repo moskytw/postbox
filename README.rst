@@ -3,7 +3,7 @@ Postbox
 
 It makes sending mail easier. The main features:
 
-1. It allows you specify SMTP headers by keyword arguments.
+1. It allows you specify headers by keyword arguments.
 2. Support interactive prompt for username or password.
 3. Support optional `with` statement.
 
@@ -21,7 +21,7 @@ or download it manually.
 Examples
 --------
 
-It is an example which sends a mail from Python Shell.
+It is an example which sends a mail from Python shell.
 
 ::
 
@@ -61,7 +61,7 @@ The ``Postbox`` or ``Gmail`` accepts the following keyword arguments:
 8. ``debuglevel``: the debuglevel.
 9. ``dry_run``: don't send the mail out.
 
-The all keyword arguments to ``send`` will be translated into SMTP headers,
-except the ``body`` is the body of this mail. If you don't specify ``from_``, it
-takes the username as default. The iterable but not string will be joined to a
-string by comma.
+The all keyword arguments to ``send`` will be translated into headers, except
+the ``body`` is the body of this mail. If you don't specify ``from_``, it takes
+the username as default. The iterable but not string will be joined to a string
+by comma.
