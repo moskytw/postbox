@@ -15,10 +15,18 @@ class Postbox(object):
     prompt_password = 'password? '
     debuglevel = None
 
-    def __init__(self, **attrs):
-
+    def _update(self, attr):
         for key, value in attrs.items():
             setattr(self, key, value)
+
+    def __init__(self, **attrs):
+        self.server = None
+        self.connect(**attrs)
+
+    def connect(self, **attrs):
+
+        if attrs:
+            self._update(attrs)
 
         self.server = SMTP(self.host, self.port)
 
@@ -61,11 +69,14 @@ class Postbox(object):
             '%s\r\n\r\n%s' % (headers, body)
         )
 
+    def close(self):
+        self.server.quit()
+
     def __enter__(self):
         return self
 
     def __exit__(self, exc_type, exc_value, exc_tb):
-        self.server.quit()
+        self.close()
 
 class Gmail(Postbox):
     host = 'smtp.gmail.com'
