@@ -29,9 +29,9 @@ with Gmail(user='mosky.bot@gmail.com') as gmail:
     )
 
     gmail.send(
-        from_   = 'Mosky Bot <mosky.bot@gmail.com>',
-        to      = 'Mosky Liu <mosky.tw@gmail.com>',
+        from_    = 'Mosky Bot <mosky.bot@gmail.com>',
+        to       = 'Mosky Liu <mosky.tw@gmail.com>',
         reply_to = 'Mosky Bot <mosky.bot+123@gmail.com>',
-        subject = 'Test from Postbox :) #reply-to',
-        body    = ':D',
+        subject  = 'Test from Postbox :) #reply-to',
+        body     = ':D',
     )
