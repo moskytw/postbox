@@ -74,7 +74,7 @@ except the ``body`` is the body of this mail. The common headers list:
 1. ``to``: It it used as the `to_addrs
    <http://docs.python.org/2/library/smtplib.html#smtplib.SMTP.sendmail>`_, so
    you must to specify it.
-2. ``from\_``: It is used as the `from_addr
+2. ``from_``: It is used as the `from_addr
    <http://docs.python.org/2/library/smtplib.html#smtplib.SMTP.sendmail>`_. If
    you don't specify it, it takes the ``user`` from `Postbox` instance as
    default.
