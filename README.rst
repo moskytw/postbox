@@ -3,7 +3,7 @@ Postbox
 
 It makes sending mail easier. The main features:
 
-1. It allows you specify headers by keyword arguments.
+1. It allows you specify message headers by keyword arguments.
 2. Support interactive prompt for username or password.
 3. Support optional `with` statement.
 
@@ -48,7 +48,10 @@ You can find more examples `here
 Usage
 -----
 
-The ``Postbox`` or ``Gmail`` accepts the following keyword arguments:
+`Postbox`
+~~~~~~~~~
+
+The ``Postbox`` (or ``Gmail``) accepts the following keyword arguments:
 
 1. ``host``: the hostname of your SMTP server. ex. 'smtp.google.com' or
    'smtp.google.com:587'
@@ -61,7 +64,24 @@ The ``Postbox`` or ``Gmail`` accepts the following keyword arguments:
 8. ``debuglevel``: the debuglevel.
 9. ``dry_run``: don't send the mail out.
 
-The all keyword arguments to ``send`` will be translated into headers, except
-the ``body`` is the body of this mail. If you don't specify ``from_``, it takes
-the username as default. The iterable but not string will be joined to a string
-by comma.
+
+`postbox.send`
+~~~~~~~~~~~~~~
+
+The all keyword arguments to ``send`` will be translated into message headers,
+except the ``body`` is the body of this mail. The common headers list:
+
+1. ``to``: It it used as the `to_addrs
+   <http://docs.python.org/2/library/smtplib.html#smtplib.SMTP.sendmail>`_, so
+   you must to specify it.
+2. ``from\_``: It is used as the `from_addr
+   <http://docs.python.org/2/library/smtplib.html#smtplib.SMTP.sendmail>`_. If
+   you don't specify it, it takes the ``user`` from `Postbox` instance as
+   default.
+3. ``subject``
+4. ``cc``
+5. ``bcc``
+6. ``reply_to``
+
+If a value is iterable but not a string, it will be joined into a string by
+comma.
