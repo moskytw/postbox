@@ -71,7 +71,7 @@ The ``Postbox`` (or ``Gmail``) accepts the following keyword arguments:
 The all keyword arguments to ``send`` will be translated into message headers,
 except the ``body`` is the body of this mail. The common headers list:
 
-1. ``to``: It it also used as the `to_addrs
+1. ``to``: It is also used as the `to_addrs
    <http://docs.python.org/2/library/smtplib.html#smtplib.SMTP.sendmail>`_, so
    you must to specify it.
 2. ``from_``: It is also used as the `from_addr
