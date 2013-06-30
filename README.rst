@@ -59,8 +59,8 @@ The ``Postbox`` (or ``Gmail``) accepts the following keyword arguments:
 3. ``user``: the username.
 4. ``password``: the password.
 5. ``tls``: use tls or not.
-6. ``prompt_user``: prompt string if you don't specified ``user``.
-7. ``prompt_password``: prompt string if you don't specified ``password``.
+6. ``prompt_user``: prompt string if you don't specify ``user``.
+7. ``prompt_password``: prompt string if you don't specify ``password``.
 8. ``debuglevel``: the debuglevel.
 9. ``dry_run``: don't send the mail out.
 
