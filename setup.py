@@ -4,7 +4,7 @@ from postbox import __version__
 
 setup(
     name    = 'postbox',
-    description = 'It makes sending emails easier with Python.',
+    description = 'Send email easier.',
     long_description = open('README.rst').read(),
     version = __version__,
     author  = 'Mosky',
