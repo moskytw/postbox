@@ -29,7 +29,7 @@ It is an example which sends a mail from Python shell.
 
     >>> gmail = Postbox(host='smtp.google.com:587') # or gmail = Gmail()
     username? mosky.bot@gmail.com
-    password? 
+    password?
 
     >>> gmail.send(
     ...     to = ['mosky.tw@gmail.com', 'mosky.liu@pinkoi.com'],
@@ -37,7 +37,7 @@ It is an example which sends a mail from Python shell.
     ...     subject = 'Test from Python Shell',
     ...     body = 'It is sent by postbox. :)'
     ... )
-    ... 
+    ...
 
     >>> gmail.close()
     >>>
