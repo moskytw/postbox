@@ -7,17 +7,6 @@ It makes sending mail easier. The main features:
 2. Support interactive prompt for username or password.
 3. Support optional `with` statement.
 
-Installation
-------------
-
-You can install it via PyPI,
-
-::
-
-    sudo pip install postbox
-
-or download it manually.
-
 Examples
 --------
 
